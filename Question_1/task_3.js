@@ -51,25 +51,14 @@ let customers = [
     }
  ];
 
- customers.forEach(customer => {
-    if(customer.gender === "F" && customer.married === false) {
-        entier_name = 'Ms. ' + customer.f_name + " " + customer.l_name;
-    } else if(customer.gender === "F" && customer.married === true) {
-        entier_name = 'Mrs. ' + customer.f_name + " " + customer.l_name;
-    } else {
-        entier_name = 'Mr. ' + customer.f_name + " " + customer.l_name;
-    }
-    customer["fullName"] = entier_name;
-    });
-    
-
+let entier_name;
 customers.forEach(customer => {
-if(customer.age < 10){
-    young = true;
+if(customer.gender === "F") {
+    entier_name = customer.married === false ? 'Ms. ' : 'Mrs. ';
 } else {
-    young = false;
+    entier_name = 'Mr. ';
 }
-customer["youngCustomer"] = young;
+customer["fullName"] = entier_name + customer.f_name + customer.l_name;
 });
 
 customers.forEach(customer => {
